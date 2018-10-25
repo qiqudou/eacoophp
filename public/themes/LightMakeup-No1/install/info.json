@@ -1,0 +1,17 @@
+{
+	"name":"LightMakeup-No1",
+	"title":"LightMakeup-No1",
+	"description":"资讯网站主题 - 希望每个网站都像化了淡妆的妹纸一样，所以叫Light Makeup。",
+	"author":"yyyvy",
+	"version":"1.0.0",
+	"dependences":{
+		"core":"1.2.0",
+		"plugins":{
+
+		},
+		"modules":{
+			"cms" : "1.2.0"
+		}
+	},
+	"database_prefix":"eacoo_"
+}

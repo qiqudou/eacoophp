@@ -1,0 +1,4 @@
+<?php
+//000000001200
+ exit();?>
+a:24:{s:2:"id";i:94;s:3:"uid";i:1;s:4:"name";s:27:"eacoophp-watermark-banner-1";s:4:"path";s:76:"http://cdn.eacoophp.com/static/demo-eacoophp/eacoophp-watermark-banner-1.jpg";s:3:"url";s:76:"http://cdn.eacoophp.com/static/demo-eacoophp/eacoophp-watermark-banner-1.jpg";s:8:"location";s:4:"link";s:9:"path_type";s:7:"picture";s:3:"ext";s:3:"jpg";s:9:"mime_type";s:5:"image";s:4:"size";s:9:"167.04 KB";s:3:"alt";s:27:"eacoophp-watermark-banner-1";s:3:"md5";s:0:"";s:4:"sha1";s:0:"";s:8:"download";i:0;s:11:"create_time";s:19:"2017-09-24 09:16:17";s:11:"update_time";s:19:"2017-09-24 09:16:17";s:4:"sort";i:99;s:6:"status";i:1;s:7:"urlRule";s:16:"home/index/index";s:2:"ip";s:9:"127.0.0.1";s:3:"src";s:76:"http://cdn.eacoophp.com/static/demo-eacoophp/eacoophp-watermark-banner-1.jpg";s:10:"uploadtime";s:19:"2017-09-24 09:16:17";s:6:"author";s:9:"创始人";s:7:"term_id";i:13;}

@@ -1,0 +1,4 @@
+<?php
+//000000001200
+ exit();?>
+a:25:{s:2:"id";i:4;s:3:"uid";i:1;s:4:"name";s:8:"logo.png";s:4:"path";s:9:"/logo.png";s:3:"url";s:28:"http://www.test.com/logo.png";s:8:"location";s:5:"local";s:9:"path_type";s:7:"picture";s:3:"ext";s:3:"jpg";s:9:"mime_type";s:0:"";s:4:"size";s:8:"39.06 KB";s:3:"alt";s:13:"eacoophp-logo";s:3:"md5";s:0:"";s:4:"sha1";s:0:"";s:8:"download";i:0;s:11:"create_time";s:19:"2016-06-12 19:50:01";s:11:"update_time";s:19:"2016-06-12 19:50:01";s:4:"sort";i:99;s:6:"status";i:1;s:7:"urlRule";s:20:"admin/config/website";s:2:"ip";s:9:"127.0.0.1";s:9:"real_path";s:42:"D:\phpStudy\WWW\homedatas\public//logo.png";s:3:"src";s:9:"/logo.png";s:10:"uploadtime";s:19:"2016-06-12 19:50:01";s:6:"author";s:9:"创始人";s:7:"term_id";i:0;}

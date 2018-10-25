@@ -1,0 +1,48 @@
+{extend name="$_theme_public_layout"/}
+
+{block name="main"}
+<div class="container">
+    <div class="content">
+        <div class="warp_full">
+            <div class="list">
+                {notempty name="post_list"}
+                    {volist name="post_list" id="data"}
+                        <article>
+                            <a href="#" class="imgfull">
+                                <img src="{$data.cover}" alt="{$data.title}">
+                            </a>
+                            <h2>
+                                <a href="{:url('cms/index/detail',['id'=>$data['id']])}">
+                                    {$data.title}
+                                </a>
+                            </h2>
+                            <div class="data">
+                                <span class="author">
+                                    yyyvy
+                                </span>
+                                            <span class="time">
+                                    2018-04-08
+                                </span>
+                                            <span class="view">
+                                    3677
+                                </span>
+                            </div>
+                            <div class="desc">
+                                {$data.digest}
+                            </div>
+                        </article>
+                    {/volist}
+                {else/}
+                    <p class="tc">暂无内容</p>
+                {/notempty}
+            </div>
+        </div>
+    </div>
+    {include file="sidebar" /}
+</div>
+
+{/block}
+
+{block name="script"}
+ 
+{/block}

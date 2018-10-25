@@ -1,0 +1,18 @@
+{
+	"name":"micro_topics",
+	"title":"微话题",
+	"description":"微话题，专注实时热点、个人兴趣、网友讨论等。",
+	"author":"yyyvy",
+	"admin_manage_into":"",
+	"version":"1.0.5",
+	"dependences":{
+		"core":"1.2.0",
+		"plugins":{
+
+		},
+		"modules":{
+
+		}
+	},
+	"database_prefix":"eacoo_"
+}

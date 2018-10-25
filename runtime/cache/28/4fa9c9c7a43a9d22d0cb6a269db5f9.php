@@ -1,0 +1,4 @@
+<?php
+//000000003600
+ exit();?>
+a:31:{s:3:"uid";i:1;s:8:"username";s:7:"qiqudou";s:6:"number";s:0:"";s:8:"password";s:32:"29ec42c8b3a291c47abf8c82b916b35c";s:8:"nickname";s:9:"创始人";s:5:"email";s:15:"admin@admin.com";s:6:"mobile";s:0:"";s:6:"avatar";s:68:"http://img.eacoomall.com/images/static/assets/img/default-avatar.png";s:3:"sex";i:0;s:8:"birthday";s:10:"0000-00-00";s:11:"description";s:0:"";s:11:"register_ip";s:0:"";s:9:"login_num";i:0;s:13:"last_login_ip";s:9:"127.0.0.1";s:15:"last_login_time";i:1537319800;s:20:"activation_auth_sign";s:40:"f0b940ef38d87f72271452d67ce8dc188cd437d0";s:3:"url";s:0:"";s:5:"score";i:0;s:5:"money";s:4:"0.00";s:12:"freeze_money";s:4:"0.00";s:7:"pay_pwd";s:0:"";s:8:"reg_from";i:0;s:10:"reg_method";s:0:"";s:5:"level";i:0;s:5:"p_uid";i:0;s:11:"allow_admin";i:1;s:8:"reg_time";i:1537238550;s:6:"status";i:1;s:7:"urlRule";s:17:"admin/index/index";s:2:"ip";s:9:"127.0.0.1";s:10:"auth_group";a:1:{i:1;s:15:"超级管理员";}}

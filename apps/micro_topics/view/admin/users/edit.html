@@ -1,0 +1,132 @@
+{extend name="$_admin_public_base_"/}
+{block name="style"}
+{/block}
+
+{block name="main"}
+<div class="row">
+    <form id="form_id" method="post" action="{$form_url}" class="form-post form-horizontal">
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">{$meta_title}</h3>
+                </div>
+                <div class="box-body">
+                    {notempty name="info.id"}
+                    <input type="hidden" name="id" value="{$info.id|default='0'}" />
+                    {/notempty}
+                    <input type="hidden" name="vip" value="{$info.vip}" />
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label" for="nickname">用户昵称</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" name="nickname" value="{$info.nickname}" type="text" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label" for="role">用户角色</label>
+                        <div class="col-sm-5">
+                            <select name="role" id="role" class="form-control">
+                                <option value="0" {$info.role?'':'selected'}>普通</option>
+                                <option value="1" {$info.role?'selected':''}>官方</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label" for="level_integration">等级积分</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" name="level_integration" value="{$info.level_integration|default=''}" type="text" placeholder="请输入用户等级积分">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label" for="vip_integration">VIP积分</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" name="vip_integration" value="{$info.vip_integration|default=''}" type="text" placeholder="请输入VIP积分">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label" for="vip_start_time">VIP开始时间</label>
+                        <div class="col-sm-5">
+                            <input id="vip_start_time" class="form-control form-datetime" type="text" value="{$info.vip_start_time,'ymd'|friendly_date|default=date('Y-m-d',time())}" name="vip_start_time" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label" for="vip_end_time">VIP结束时间</label>
+                        <div class="col-sm-5">
+                            <input id="vip_end_time" class="form-control form-datetime" type="text" value="{$info.vip_end_time,'ymd'|friendly_date|default=date('Y-m-d',time())}" name="vip_end_time" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label" for="author">是否认证</label>
+                        <div class="col-sm-5">
+                            <label for="author" class="col-sm-3">
+                                <input type="radio" name="author" value="0" {$info.author?'':'checked'}>
+                                <span class="circle"></span>
+                                <span class="check"></span>
+                                未认证
+                            </label>
+                            <label for="author" class="col-sm-3">
+                                <input type="radio" name="author" value="1" {$info.author?'checked':''}>
+                                <span class="circle"></span>
+                                <span class="check"></span>
+                                已认证
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label" for="author_info">认证信息</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" name="author_info" value="{$info.author_info|default=''}" type="text" placeholder="请输入认证信息">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-1" for="author_img">认证图片:</label>
+                        <div class="col-sm-5">
+                            {:widget('common/Upload/pictures',[
+                            [
+                            'id'=>'author_img',
+                            'class'=>'uploadsingleimg',
+                            'name'=>'author_img',
+                            'value'=>$info['author_img'],
+                            'config'=>'',
+                            'width'=>false,
+                            'height'=>false
+                            ]
+                            ])}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 tc mt-30">
+            <div class="box box-solid">
+
+                <div class="box-body">
+                    {notempty name="info.id"}
+                    <button class="btn btn-primary ajax-post" data-pjax=false id="login" align="center" type="submit" name="status" value="1" target-form="form-post">更新</button>
+                    {else/}
+                    <button class="btn btn-primary ajax-post" id="login" align="center" type="submit" name="status" value="1" target-form="form-post">保存并发布</button>
+                    {/notempty}
+                    <button onclick="javascript:history.back(-1);return false;" class="btn btn-default return">返回</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{/block}
+
+{block name="script"}
+
+<link href="__STATIC__/libs/datetimepicker/datetimepicker.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__STATIC__/libs/datetimepicker/datetimepicker.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.form-datetime').datetimepicker({
+            language: "zh-CN",
+            autoclose: true,
+            todayBtn:true,
+            minView: "month",//设置只显示到月份
+            format: 'yyyy-mm-dd',
+        });
+    });
+</script>
+{/block}

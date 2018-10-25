@@ -1,0 +1,796 @@
+---------------------------------------------------------------
+[ 2018-09-19T09:16:18+08:00 ] 127.0.0.1 GET /
+[ info ] www.test.com/ [运行时间：2.373046s][吞吐率：0.42req/s] [内存消耗：3,181.79kb] [文件加载：86]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitApp @app_init [ RunTime:0.002930s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\homedatas\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.test.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.394531s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_begin [ RunTime:0.005860s ]
+[ info ] [ SESSION ] INIT array (
+  'type' => '',
+  'prefix' => 'eacoophp_',
+  'auto_start' => '1',
+)
+[ info ] [ RUN ] app\home\controller\Index->index[ D:\phpStudy\WWW\homedatas\apps\home\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpStudy\WWW\homedatas\public/themes/LightMakeup-No1/home/index\index.html [ array (
+  0 => 'current_user',
+  1 => 'header_menus',
+  2 => 'users_menus',
+  3 => 'current',
+  4 => '_theme_public_',
+  5 => '_theme_public_layout',
+  6 => 'page_config',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.017579s ] mysql:host=127.0.0.1;port=3306;dbname=www_qiqudou_com;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_themes` [ RunTime:0.072265s ]
+[ sql ] [ SQL ] SELECT `name` FROM `eacoo_themes` WHERE  `current` = 1 LIMIT 1 [ RunTime:0.002929s ]
+[ sql ] [ SQL ] SELECT `name` FROM `eacoo_themes` WHERE  `current` = 2 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_config` [ RunTime:0.062500s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `eacoo_config` WHERE  `status` = 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_modules` [ RunTime:0.041992s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `eacoo_modules` WHERE  `status` = 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_hooks` [ RunTime:0.031250s ]
+[ sql ] [ SQL ] SELECT `id` FROM `eacoo_hooks` WHERE  `name` = 'FormBuilderExtend' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_hooks_extra` [ RunTime:0.036133s ]
+[ sql ] [ SQL ] SELECT `depend_flag` FROM `eacoo_hooks_extra` WHERE  `hook_id` = 2  AND `depend_type` = 2 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT `value` FROM `eacoo_config` WHERE  `name` = 'captcha_type' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_nav` [ RunTime:0.074219s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`value`,`pid`,`icon`,`target`,`depend_type`,`depend_flag` FROM `eacoo_nav` WHERE  `position` = 'header'  AND `status` = 1 ORDER BY `sort` ASC [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`value`,`pid`,`icon`,`target`,`depend_type`,`depend_flag` FROM `eacoo_nav` WHERE  `position` = 'my'  AND `status` = 1 ORDER BY `sort` ASC [ RunTime:0.002930s ]
+[ sql ] [ SQL ] SELECT `title` FROM `eacoo_modules` WHERE  `name` = 'home' LIMIT 1 [ RunTime:0.002929s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_posts` [ RunTime:0.237305s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `eacoo_posts` WHERE  `status` = 1  AND `type` = 'post' LIMIT 1 [ RunTime:0.002930s ]
+[ sql ] [ SQL ] SELECT * FROM `eacoo_posts` WHERE  `status` = 1  AND `type` = 'post' ORDER BY `sort` DESC,`create_time` DESC,`id` DESC LIMIT 0,5 [ RunTime:0.002929s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_attachment` [ RunTime:0.570312s ]
+[ sql ] [ SQL ] SELECT * FROM `eacoo_attachment` WHERE  `id` = 88 LIMIT 1 [ RunTime:0.002930s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_users` [ RunTime:0.046875s ]
+[ sql ] [ SQL ] SELECT * FROM `eacoo_users` WHERE  `uid` = 1 LIMIT 1 [ RunTime:0.002930s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_auth_group_access` [ RunTime:0.051757s ]
+[ sql ] [ SQL ] SELECT `a`.`group_id`,`b`.`title` FROM `eacoo_auth_group_access` `a` INNER JOIN `eacoo_auth_group` `b` ON `a`.`group_id`=`b`.`id` WHERE  `a`.`uid` = 1  AND `a`.`status` = 1 [ RunTime:0.007812s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_term_relationships` [ RunTime:0.042969s ]
+[ sql ] [ SQL ] SELECT `term_id` FROM `eacoo_term_relationships` WHERE  `object_id` = 88  AND `table` = 'attachment' LIMIT 1 [ RunTime:0.001954s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_terms` [ RunTime:0.049804s ]
+[ sql ] [ SQL ] SELECT `term_id` FROM `eacoo_terms` WHERE  `term_id` IS NULL LIMIT 1 [ RunTime:0.002930s ]
+[ sql ] [ SQL ] SELECT * FROM `eacoo_attachment` WHERE  `id` = 94 LIMIT 1 [ RunTime:0.003906s ]
+[ sql ] [ SQL ] SELECT `term_id` FROM `eacoo_term_relationships` WHERE  `object_id` = 94  AND `table` = 'attachment' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT `term_id` FROM `eacoo_terms` WHERE  `term_id` = 13 LIMIT 1 [ RunTime:0.001954s ]
+[ sql ] [ SQL ] SELECT * FROM `eacoo_attachment` WHERE  `id` = 93 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT `term_id` FROM `eacoo_term_relationships` WHERE  `object_id` = 93  AND `table` = 'attachment' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT `term_id` FROM `eacoo_terms` WHERE  `term_id` = 11 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT `nickname` FROM `eacoo_users` WHERE  `uid` = 1 LIMIT 1 [ RunTime:0.002929s ]
+[ sql ] [ SQL ] SELECT `nickname` FROM `eacoo_users` WHERE  `uid` = 1 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT `nickname` FROM `eacoo_users` WHERE  `uid` = 1 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT * FROM `eacoo_terms` WHERE  `taxonomy` = 'post_tag' [ RunTime:0.001954s ]
+---------------------------------------------------------------
+[ 2018-09-19T09:16:22+08:00 ] 127.0.0.1 GET /admin.php?s=/admin/login/index
+[ info ] www.test.com/admin.php?s=/admin/login/index [运行时间：0.356446s][吞吐率：2.81req/s] [内存消耗：2,924.20kb] [文件加载：80]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitApp @app_init [ RunTime:0.001953s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\homedatas\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=t8lpinr7g43gi9abghtterdhv6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'purpose' => 'prefetch',
+  'connection' => 'close',
+  'host' => 'www.test.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.088867s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_begin [ RunTime:0.001953s ]
+[ info ] [ RUN ] app\admin\controller\Login->index[ D:\phpStudy\WWW\homedatas\apps\admin\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'type' => '',
+  'prefix' => 'eacoophp_',
+  'auto_start' => '1',
+)
+[ info ] [ VIEW ] D:\phpStudy\WWW\homedatas\public/../apps/admin\view\login\index.html [ array (
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Log @app_end [ RunTime:0.083008s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;port=3306;dbname=www_qiqudou_com;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_config` [ RunTime:0.035156s ]
+[ sql ] [ SQL ] SELECT `value` FROM `eacoo_config` WHERE  `name` = 'captcha_type' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_action` [ RunTime:0.054688s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`action_type` FROM `eacoo_action` WHERE  `depend_type` = 1  AND `depend_flag` = 'admin'  AND `name` = 'login_index'  AND `status` = 1 LIMIT 1 [ RunTime:0.001953s ]
+---------------------------------------------------------------
+[ 2018-09-19T09:16:24+08:00 ] 127.0.0.1 GET /admin.php?s=/admin/login/index
+[ info ] www.test.com/admin.php?s=/admin/login/index [运行时间：0.253906s][吞吐率：3.94req/s] [内存消耗：2,923.80kb] [文件加载：80]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitApp @app_init [ RunTime:0.001953s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\homedatas\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=t8lpinr7g43gi9abghtterdhv6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.test.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.078125s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_begin [ RunTime:0.002930s ]
+[ info ] [ RUN ] app\admin\controller\Login->index[ D:\phpStudy\WWW\homedatas\apps\admin\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'type' => '',
+  'prefix' => 'eacoophp_',
+  'auto_start' => '1',
+)
+[ info ] [ VIEW ] D:\phpStudy\WWW\homedatas\public/../apps/admin\view\login\index.html [ array (
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Log @app_end [ RunTime:0.036133s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.014648s ] mysql:host=127.0.0.1;port=3306;dbname=www_qiqudou_com;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_config` [ RunTime:0.022461s ]
+[ sql ] [ SQL ] SELECT `value` FROM `eacoo_config` WHERE  `name` = 'captcha_type' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_action` [ RunTime:0.022461s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`action_type` FROM `eacoo_action` WHERE  `depend_type` = 1  AND `depend_flag` = 'admin'  AND `name` = 'login_index'  AND `status` = 1 LIMIT 1 [ RunTime:0.001953s ]
+---------------------------------------------------------------
+[ 2018-09-19T09:16:25+08:00 ] 127.0.0.1 GET /admin.php/admin/login/verify_img.html
+[ info ] www.test.com/admin.php/admin/login/verify_img.html [运行时间：0.506836s][吞吐率：1.97req/s] [内存消耗：2,825.09kb] [文件加载：76]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitApp @app_init [ RunTime:0.001953s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\homedatas\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'verify_img',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=t8lpinr7g43gi9abghtterdhv6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.test.com/admin.php?s=/admin/login/index',
+  'accept' => 'image/webp,image/apng,image/*,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'connection' => 'close',
+  'host' => 'www.test.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.189453s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_begin [ RunTime:0.004883s ]
+[ info ] [ RUN ] app\admin\controller\Login->verify_img[ D:\phpStudy\WWW\homedatas\apps\admin\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'type' => '',
+  'prefix' => 'eacoophp_',
+  'auto_start' => '1',
+)
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Log @app_end [ RunTime:0.050782s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.008789s ] mysql:host=127.0.0.1;port=3306;dbname=www_qiqudou_com;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_config` [ RunTime:0.045899s ]
+[ sql ] [ SQL ] SELECT `value` FROM `eacoo_config` WHERE  `name` = 'captcha_type' LIMIT 1 [ RunTime:0.001954s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_action` [ RunTime:0.040039s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`action_type` FROM `eacoo_action` WHERE  `depend_type` = 1  AND `depend_flag` = 'admin'  AND `name` = 'login_verify_img'  AND `status` = 1 LIMIT 1 [ RunTime:0.002930s ]
+---------------------------------------------------------------
+[ 2018-09-19T09:16:40+08:00 ] 127.0.0.1 POST /admin.php/admin/login/index.html
+[ info ] www.test.com/admin.php/admin/login/index.html [运行时间：1.055664s][吞吐率：0.95req/s] [内存消耗：2,971.48kb] [文件加载：84]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitApp @app_init [ RunTime:0.002929s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\homedatas\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=t8lpinr7g43gi9abghtterdhv6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.test.com/admin.php?s=/admin/login/index',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://www.test.com',
+  'accept' => '*/*',
+  'content-length' => '62',
+  'connection' => 'close',
+  'host' => 'www.test.com',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'qiqudou',
+  'password' => 'leilei1984',
+  'captcha' => '0832',
+  'rememberme' => '0',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.091797s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_begin [ RunTime:0.002929s ]
+[ info ] [ RUN ] app\admin\controller\Login->index[ D:\phpStudy\WWW\homedatas\apps\admin\controller\Login.php ]
+[ info ] [ SESSION ] INIT array (
+  'type' => '',
+  'prefix' => 'eacoophp_',
+  'auto_start' => '1',
+)
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Log @app_end [ RunTime:0.391601s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003907s ] mysql:host=127.0.0.1;port=3306;dbname=www_qiqudou_com;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_config` [ RunTime:0.029297s ]
+[ sql ] [ SQL ] SELECT `value` FROM `eacoo_config` WHERE  `name` = 'captcha_type' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_users` [ RunTime:0.036133s ]
+[ sql ] [ SQL ] SELECT `allow_admin` FROM `eacoo_users` WHERE  ( `username` = 'qiqudou' OR `email` = 'qiqudou' OR `mobile` = 'qiqudou' )  AND `status` = 1 LIMIT 1 [ RunTime:0.002929s ]
+[ sql ] [ SQL ] SELECT * FROM `eacoo_users` WHERE  ( `username` = 'qiqudou' OR `email` = 'qiqudou' OR `mobile` = 'qiqudou' OR `nickname` = 'qiqudou' )  AND `status` = 1 LIMIT 1 [ RunTime:0.003906s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_auth_group_access` [ RunTime:0.034180s ]
+[ sql ] [ SQL ] SELECT `a`.`group_id`,`b`.`title` FROM `eacoo_auth_group_access` `a` INNER JOIN `eacoo_auth_group` `b` ON `a`.`group_id`=`b`.`id` WHERE  `a`.`uid` = 1  AND `a`.`status` = 1 [ RunTime:0.002930s ]
+[ sql ] [ SQL ] UPDATE `eacoo_users`  SET `last_login_ip`='127.0.0.1',`last_login_time`=1537319800,`activation_auth_sign`='f0b940ef38d87f72271452d67ce8dc188cd437d0'  WHERE  `uid` = 1 [ RunTime:0.125977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_action` [ RunTime:0.034180s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`action_type` FROM `eacoo_action` WHERE  `depend_type` = 1  AND `depend_flag` = 'admin'  AND `name` = 'login_index'  AND `status` = 1 LIMIT 1 [ RunTime:0.001954s ]
+[ sql ] [ SQL ] SELECT `username` FROM `eacoo_users` WHERE  `uid` = 1 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_action_log` [ RunTime:0.101563s ]
+[ sql ] [ SQL ] INSERT INTO `eacoo_action_log` (`action_id` , `uid` , `nickname` , `request_method` , `url` , `data` , `ip` , `remark` , `user_agent` , `create_time`) VALUES (1 , 1 , 'qiqudou' , 'POST' , '/admin.php/admin/login/index.html' , '{\"param\":[]}' , '127.0.0.1' , '登录后台' , 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36' , 1537319800) [ RunTime:0.234375s ]
+---------------------------------------------------------------
+[ 2018-09-19T09:16:43+08:00 ] 127.0.0.1 GET /admin.php/admin/index/index.html
+[ info ] www.test.com/admin.php/admin/index/index.html [运行时间：2.650390s][吞吐率：0.38req/s] [内存消耗：3,007.45kb] [文件加载：82]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitApp @app_init [ RunTime:0.001954s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\homedatas\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=t8lpinr7g43gi9abghtterdhv6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.test.com/admin.php?s=/admin/login/index',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.test.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.119141s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_begin [ RunTime:0.005859s ]
+[ info ] [ SESSION ] INIT array (
+  'type' => '',
+  'prefix' => 'eacoophp_',
+  'auto_start' => '1',
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\phpStudy\WWW\homedatas\apps\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpStudy\WWW\homedatas\public/../apps/admin\view\index\index.html [ array (
+  0 => 'url_model',
+  1 => 'current_user',
+  2 => 'is_menu_collected',
+  3 => '_admin_document_header_',
+  4 => '_admin_public_left_',
+  5 => '_admin_public_base_',
+  6 => '_admin_public_layerbase_',
+  7 => 'meta_title',
+  8 => 'current_message_count',
+  9 => 'accredit_status',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Log @app_end [ RunTime:0.029297s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.025391s ] mysql:host=127.0.0.1;port=3306;dbname=www_qiqudou_com;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_config` [ RunTime:0.035156s ]
+[ sql ] [ SQL ] SELECT `value` FROM `eacoo_config` WHERE  `name` = 'captcha_type' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_users` [ RunTime:0.022461s ]
+[ sql ] [ SQL ] SELECT * FROM `eacoo_users` WHERE  `uid` = 1 LIMIT 1 [ RunTime:0.002930s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_auth_group_access` [ RunTime:0.020508s ]
+[ sql ] [ SQL ] SELECT `a`.`group_id`,`b`.`title` FROM `eacoo_auth_group_access` `a` INNER JOIN `eacoo_auth_group` `b` ON `a`.`group_id`=`b`.`id` WHERE  `a`.`uid` = 1  AND `a`.`status` = 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SELECT `activation_auth_sign` FROM `eacoo_users` WHERE  `uid` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_action` [ RunTime:0.023438s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`action_type` FROM `eacoo_action` WHERE  `depend_type` = 1  AND `depend_flag` = 'admin'  AND `name` = 'index_index'  AND `status` = 1 LIMIT 1 [ RunTime:0.001954s ]
+---------------------------------------------------------------
+[ 2018-09-19T09:16:44+08:00 ] 127.0.0.1 GET /admin.php/admin/dashboard/index.html
+[ info ] www.test.com/admin.php/admin/dashboard/index.html [运行时间：0.616211s][吞吐率：1.62req/s] [内存消耗：3,027.88kb] [文件加载：87]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitApp @app_init [ RunTime:0.001953s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\homedatas\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'dashboard',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=t8lpinr7g43gi9abghtterdhv6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.test.com/admin.php/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.test.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.090820s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_begin [ RunTime:0.002930s ]
+[ info ] [ SESSION ] INIT array (
+  'type' => '',
+  'prefix' => 'eacoophp_',
+  'auto_start' => '1',
+)
+[ info ] [ RUN ] app\admin\controller\Dashboard->index[ D:\phpStudy\WWW\homedatas\apps\admin\controller\Dashboard.php ]
+[ info ] [ VIEW ] D:\phpStudy\WWW\homedatas\public/../apps/admin\view\dashboard\index.html [ array (
+  0 => 'url_model',
+  1 => 'current_user',
+  2 => 'is_menu_collected',
+  3 => '_admin_document_header_',
+  4 => '_admin_public_left_',
+  5 => '_admin_public_base_',
+  6 => '_admin_public_layerbase_',
+  7 => 'meta_title',
+  8 => 'page_config',
+  9 => 'server_info',
+  10 => 'eacoo_news_list',
+) ]
+[ info ] [ VIEW ] D:\phpStudy\WWW\homedatas\public/../apps/cms/view/admin/widget/hooks/tool.html [ array (
+  0 => 'url_model',
+  1 => 'current_user',
+  2 => 'is_menu_collected',
+  3 => '_admin_document_header_',
+  4 => '_admin_public_left_',
+  5 => '_admin_public_base_',
+  6 => '_admin_public_layerbase_',
+  7 => 'meta_title',
+  8 => 'page_config',
+  9 => 'server_info',
+  10 => 'eacoo_news_list',
+  11 => 'generalize',
+) ]
+[ info ] [ BEHAVIOR ] Run \app\cms\widget\Hooks @AdminIndex [ RunTime:0.058594s ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Log @app_end [ RunTime:0.028320s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;port=3306;dbname=www_qiqudou_com;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_config` [ RunTime:0.032226s ]
+[ sql ] [ SQL ] SELECT `value` FROM `eacoo_config` WHERE  `name` = 'captcha_type' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_users` [ RunTime:0.034180s ]
+[ sql ] [ SQL ] SELECT `activation_auth_sign` FROM `eacoo_users` WHERE  `uid` = 1 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] select VERSION() as version [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SELECT COUNT(uid) AS tp_count FROM `eacoo_users` WHERE  `uid` > 0 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_posts` [ RunTime:0.030274s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `eacoo_posts` WHERE  `type` = 'post' LIMIT 1 [ RunTime:0.001954s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `eacoo_posts` WHERE  `type` = 'page' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_action` [ RunTime:0.021484s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`action_type` FROM `eacoo_action` WHERE  `depend_type` = 1  AND `depend_flag` = 'admin'  AND `name` = 'dashboard_index'  AND `status` = 1 LIMIT 1 [ RunTime:0.001953s ]
+---------------------------------------------------------------
+[ 2018-09-19T09:16:45+08:00 ] 127.0.0.1 GET /admin.php/admin/index/getTopMenus
+[ info ] www.test.com/admin.php/admin/index/getTopMenus [运行时间：0.348633s][吞吐率：2.87req/s] [内存消耗：2,972.39kb] [文件加载：82]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitApp @app_init [ RunTime:0.002930s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\homedatas\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'getTopMenus',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=t8lpinr7g43gi9abghtterdhv6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.test.com/admin.php/admin/index/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => 'www.test.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.131836s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_begin [ RunTime:0.001953s ]
+[ info ] [ SESSION ] INIT array (
+  'type' => '',
+  'prefix' => 'eacoophp_',
+  'auto_start' => '1',
+)
+[ info ] [ RUN ] app\admin\controller\Index->getTopMenus[ D:\phpStudy\WWW\homedatas\apps\admin\controller\Index.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Log @app_end [ RunTime:0.040039s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.023438s ] mysql:host=127.0.0.1;port=3306;dbname=www_qiqudou_com;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_config` [ RunTime:0.022461s ]
+[ sql ] [ SQL ] SELECT `value` FROM `eacoo_config` WHERE  `name` = 'captcha_type' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_users` [ RunTime:0.022461s ]
+[ sql ] [ SQL ] SELECT `activation_auth_sign` FROM `eacoo_users` WHERE  `uid` = 1 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_action` [ RunTime:0.034180s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`action_type` FROM `eacoo_action` WHERE  `depend_type` = 1  AND `depend_flag` = 'admin'  AND `name` = 'index_gettopmenus'  AND `status` = 1 LIMIT 1 [ RunTime:0.002929s ]
+---------------------------------------------------------------
+[ 2018-09-19T09:16:46+08:00 ] 127.0.0.1 GET /admin.php/admin/index/getSidebarMenus
+[ info ] www.test.com/admin.php/admin/index/getSidebarMenus [运行时间：0.290040s][吞吐率：3.45req/s] [内存消耗：2,972.45kb] [文件加载：82]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitApp @app_init [ RunTime:0.001954s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\homedatas\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'getSidebarMenus',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=t8lpinr7g43gi9abghtterdhv6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.test.com/admin.php/admin/index/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => 'www.test.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.070313s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_begin [ RunTime:0.002930s ]
+[ info ] [ SESSION ] INIT array (
+  'type' => '',
+  'prefix' => 'eacoophp_',
+  'auto_start' => '1',
+)
+[ info ] [ RUN ] app\admin\controller\Index->getSidebarMenus[ D:\phpStudy\WWW\homedatas\apps\admin\controller\Index.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Log @app_end [ RunTime:0.026367s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004883s ] mysql:host=127.0.0.1;port=3306;dbname=www_qiqudou_com;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_config` [ RunTime:0.023437s ]
+[ sql ] [ SQL ] SELECT `value` FROM `eacoo_config` WHERE  `name` = 'captcha_type' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_users` [ RunTime:0.022461s ]
+[ sql ] [ SQL ] SELECT `activation_auth_sign` FROM `eacoo_users` WHERE  `uid` = 1 LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_action` [ RunTime:0.021484s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`action_type` FROM `eacoo_action` WHERE  `depend_type` = 1  AND `depend_flag` = 'admin'  AND `name` = 'index_getsidebarmenus'  AND `status` = 1 LIMIT 1 [ RunTime:0.001953s ]
+---------------------------------------------------------------
+[ 2018-09-19T09:16:46+08:00 ] 127.0.0.1 GET /admin.php/cms/page/index.html
+[ info ] www.test.com/admin.php/cms/page/index.html [运行时间：0.312500s][吞吐率：3.20req/s] [内存消耗：3,096.60kb] [文件加载：81]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitApp @app_init [ RunTime:0.001953s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\homedatas\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'cms',
+    1 => 'page',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=t8lpinr7g43gi9abghtterdhv6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.test.com/admin.php/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.test.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.074219s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_begin [ RunTime:0.001953s ]
+[ info ] [ SESSION ] INIT array (
+  'type' => '',
+  'prefix' => 'eacoophp_',
+  'auto_start' => '1',
+)
+[ info ] [ RUN ] app\cms\admin\Page->index[ D:\phpStudy\WWW\homedatas\apps\cms\admin\Page.php ]
+[ info ] [ VIEW ] D:\phpStudy\WWW\homedatas\public/../apps//common/view/builder/listbuilder.html [ array (
+  0 => 'url_model',
+  1 => 'current_user',
+  2 => 'is_menu_collected',
+  3 => '_admin_document_header_',
+  4 => '_admin_public_left_',
+  5 => '_admin_public_base_',
+  6 => '_admin_public_layerbase_',
+  7 => 'meta_title',
+  8 => 'tips',
+  9 => 'show_box_header',
+  10 => 'top_button_list',
+  11 => 'action_url',
+  12 => 'search',
+  13 => 'tab_nav',
+  14 => 'table_columns',
+  15 => 'table_column_fields',
+  16 => 'table_primary_key',
+  17 => 'table_data_page',
+  18 => 'extra_html',
+  19 => 'staticFiles',
+  20 => 'template_path_str',
+  21 => '_builder_style_',
+  22 => '_builder_javascript_',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.015625s ] mysql:host=127.0.0.1;port=3306;dbname=www_qiqudou_com;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_config` [ RunTime:0.019531s ]
+[ sql ] [ SQL ] SELECT `value` FROM `eacoo_config` WHERE  `name` = 'captcha_type' LIMIT 1 [ RunTime:0.000977s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_users` [ RunTime:0.025391s ]
+[ sql ] [ SQL ] SELECT `activation_auth_sign` FROM `eacoo_users` WHERE  `uid` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_posts` [ RunTime:0.025391s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`slug`,`type`,`source`,`excerpt`,`content`,`author_id`,`seo_keywords`,`img`,`views`,`collection`,`comment_count`,`parent`,`password`,`fields`,`istop`,`recommended`,`publish_time`,`create_time`,`update_time`,`sort`,`status` FROM `eacoo_posts` WHERE  `status` = 1  AND `type` = 'page' ORDER BY `create_time` DESC LIMIT 0,12 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `eacoo_posts` WHERE  `status` = 1  AND `type` = 'page' LIMIT 1 [ RunTime:0.001953s ]
+---------------------------------------------------------------
+[ 2018-09-19T09:16:46+08:00 ] 127.0.0.1 GET /admin.php/cms/page/index.html?paged=1&page_size=12&_=1537319806281
+[ info ] www.test.com/admin.php/cms/page/index.html?paged=1&page_size=12&_=1537319806281 [运行时间：0.256836s][吞吐率：3.89req/s] [内存消耗：3,067.47kb] [文件加载：81]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitApp @app_init [ RunTime:0.001953s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\homedatas\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'cms',
+    1 => 'page',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=t8lpinr7g43gi9abghtterdhv6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.test.com/admin.php/cms/page/index.html',
+  'content-type' => 'application/json',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'connection' => 'close',
+  'host' => 'www.test.com',
+)
+[ info ] [ PARAM ] array (
+  'paged' => '1',
+  'page_size' => '12',
+  '_' => '1537319806281',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.077148s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_begin [ RunTime:0.001953s ]
+[ info ] [ SESSION ] INIT array (
+  'type' => '',
+  'prefix' => 'eacoophp_',
+  'auto_start' => '1',
+)
+[ info ] [ RUN ] app\cms\admin\Page->index[ D:\phpStudy\WWW\homedatas\apps\cms\admin\Page.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012695s ] mysql:host=127.0.0.1;port=3306;dbname=www_qiqudou_com;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_config` [ RunTime:0.019531s ]
+[ sql ] [ SQL ] SELECT `value` FROM `eacoo_config` WHERE  `name` = 'captcha_type' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_users` [ RunTime:0.019532s ]
+[ sql ] [ SQL ] SELECT `activation_auth_sign` FROM `eacoo_users` WHERE  `uid` = 1 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_posts` [ RunTime:0.021484s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`slug`,`type`,`source`,`excerpt`,`content`,`author_id`,`seo_keywords`,`img`,`views`,`collection`,`comment_count`,`parent`,`password`,`fields`,`istop`,`recommended`,`publish_time`,`create_time`,`update_time`,`sort`,`status` FROM `eacoo_posts` WHERE  `status` = 1  AND `type` = 'page' ORDER BY `create_time` DESC LIMIT 0,12 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `eacoo_posts` WHERE  `status` = 1  AND `type` = 'page' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT `nickname` FROM `eacoo_users` WHERE  `uid` = 1 LIMIT 1 [ RunTime:0.000976s ]
+---------------------------------------------------------------
+[ 2018-09-19T09:16:55+08:00 ] 127.0.0.1 GET /admin.php/admin/theme/index.html
+[ info ] www.test.com/admin.php/admin/theme/index.html [运行时间：0.499024s][吞吐率：2.00req/s] [内存消耗：3,016.38kb] [文件加载：83]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitApp @app_init [ RunTime:0.002930s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\homedatas\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'theme',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=t8lpinr7g43gi9abghtterdhv6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.test.com/admin.php/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'www.test.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.157227s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_begin [ RunTime:0.002930s ]
+[ info ] [ SESSION ] INIT array (
+  'type' => '',
+  'prefix' => 'eacoophp_',
+  'auto_start' => '1',
+)
+[ info ] [ RUN ] app\admin\controller\Theme->index[ D:\phpStudy\WWW\homedatas\apps\admin\controller\Theme.php ]
+[ info ] [ VIEW ] D:\phpStudy\WWW\homedatas\public/../apps/admin\view\extension\themes.html [ array (
+  0 => 'url_model',
+  1 => 'current_user',
+  2 => 'is_menu_collected',
+  3 => '_admin_document_header_',
+  4 => '_admin_public_left_',
+  5 => '_admin_public_base_',
+  6 => '_admin_public_layerbase_',
+  7 => 'tab_list',
+  8 => 'from_type',
+  9 => 'meta_title',
+  10 => 'page_tips',
+) ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Log @app_end [ RunTime:0.032226s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.014648s ] mysql:host=127.0.0.1;port=3306;dbname=www_qiqudou_com;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_config` [ RunTime:0.038086s ]
+[ sql ] [ SQL ] SELECT `value` FROM `eacoo_config` WHERE  `name` = 'captcha_type' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_users` [ RunTime:0.030274s ]
+[ sql ] [ SQL ] SELECT `activation_auth_sign` FROM `eacoo_users` WHERE  `uid` = 1 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_action` [ RunTime:0.026368s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`action_type` FROM `eacoo_action` WHERE  `depend_type` = 1  AND `depend_flag` = 'admin'  AND `name` = 'theme_index'  AND `status` = 1 LIMIT 1 [ RunTime:0.001953s ]
+---------------------------------------------------------------
+[ 2018-09-19T09:16:56+08:00 ] 127.0.0.1 GET /admin.php/admin/theme/index?from_type=oneline&paged=1
+[ info ] www.test.com/admin.php/admin/theme/index?from_type=oneline&paged=1 [运行时间：0.550781s][吞吐率：1.82req/s] [内存消耗：3,102.98kb] [文件加载：83]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitApp @app_init [ RunTime:0.002929s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\homedatas\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'theme',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=t8lpinr7g43gi9abghtterdhv6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.test.com/admin.php/admin/theme/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => 'www.test.com',
+)
+[ info ] [ PARAM ] array (
+  'from_type' => 'oneline',
+  'paged' => '1',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.073242s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_begin [ RunTime:0.002930s ]
+[ info ] [ SESSION ] INIT array (
+  'type' => '',
+  'prefix' => 'eacoophp_',
+  'auto_start' => '1',
+)
+[ info ] [ RUN ] app\admin\controller\Theme->index[ D:\phpStudy\WWW\homedatas\apps\admin\controller\Theme.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Log @app_end [ RunTime:0.040039s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002930s ] mysql:host=127.0.0.1;port=3306;dbname=www_qiqudou_com;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_config` [ RunTime:0.025391s ]
+[ sql ] [ SQL ] SELECT `value` FROM `eacoo_config` WHERE  `name` = 'captcha_type' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_users` [ RunTime:0.024414s ]
+[ sql ] [ SQL ] SELECT `activation_auth_sign` FROM `eacoo_users` WHERE  `uid` = 1 LIMIT 1 [ RunTime:0.000976s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_themes` [ RunTime:0.033203s ]
+[ sql ] [ SQL ] SELECT * FROM `eacoo_themes` WHERE  `name` = 'LightMakeup-No1' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT * FROM `eacoo_themes` WHERE  `name` = 'default' LIMIT 1 [ RunTime:0.002929s ]
+[ sql ] [ SQL ] SELECT * FROM `eacoo_themes` WHERE  `name` = 'default-mobile' LIMIT 1 [ RunTime:0.002930s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_action` [ RunTime:0.032227s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`action_type` FROM `eacoo_action` WHERE  `depend_type` = 1  AND `depend_flag` = 'admin'  AND `name` = 'theme_index'  AND `status` = 1 LIMIT 1 [ RunTime:0.002930s ]
+---------------------------------------------------------------
+[ 2018-09-19T09:17:07+08:00 ] 127.0.0.1 GET /admin.php/admin/theme/index/from_type/local.html?paged=1
+[ info ] www.test.com/admin.php/admin/theme/index/from_type/local.html?paged=1 [运行时间：0.265625s][吞吐率：3.76req/s] [内存消耗：3,134.27kb] [文件加载：84]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitApp @app_init [ RunTime:0.000976s ]
+[ info ] [ LANG ] D:\phpStudy\WWW\homedatas\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'theme',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=t8lpinr7g43gi9abghtterdhv6',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://www.test.com/admin.php/admin/theme/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'connection' => 'close',
+  'host' => 'www.test.com',
+)
+[ info ] [ PARAM ] array (
+  'paged' => '1',
+  'from_type' => 'local',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.051757s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\InitHook @app_begin [ RunTime:0.002930s ]
+[ info ] [ SESSION ] INIT array (
+  'type' => '',
+  'prefix' => 'eacoophp_',
+  'auto_start' => '1',
+)
+[ info ] [ RUN ] app\admin\controller\Theme->index[ D:\phpStudy\WWW\homedatas\apps\admin\controller\Theme.php ]
+[ info ] [ BEHAVIOR ] Run app\admin\behavior\Log @app_end [ RunTime:0.023437s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001953s ] mysql:host=127.0.0.1;port=3306;dbname=www_qiqudou_com;charset=utf8mb4
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_config` [ RunTime:0.019531s ]
+[ sql ] [ SQL ] SELECT `value` FROM `eacoo_config` WHERE  `name` = 'captcha_type' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_users` [ RunTime:0.019531s ]
+[ sql ] [ SQL ] SELECT `activation_auth_sign` FROM `eacoo_users` WHERE  `uid` = 1 LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_themes` [ RunTime:0.017578s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`title`,`description`,`author`,`version`,`config`,`current`,`website`,`sort`,`create_time`,`update_time`,`status` FROM `eacoo_themes` WHERE  `name` = 'LightMakeup-No1' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`title`,`description`,`author`,`version`,`config`,`current`,`website`,`sort`,`create_time`,`update_time`,`status` FROM `eacoo_themes` WHERE  `name` = 'default' LIMIT 1 [ RunTime:0.001953s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`title`,`description`,`author`,`version`,`config`,`current`,`website`,`sort`,`create_time`,`update_time`,`status` FROM `eacoo_themes` WHERE  `name` = 'default-mobile' LIMIT 1 [ RunTime:0.001954s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `eacoo_action` [ RunTime:0.017578s ]
+[ sql ] [ SQL ] SELECT `id`,`title`,`action_type` FROM `eacoo_action` WHERE  `depend_type` = 1  AND `depend_flag` = 'admin'  AND `name` = 'theme_index'  AND `status` = 1 LIMIT 1 [ RunTime:0.000976s ]

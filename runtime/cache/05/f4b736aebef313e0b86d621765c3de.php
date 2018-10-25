@@ -1,0 +1,4 @@
+<?php
+//000000000600
+ exit();?>
+a:3:{s:15:"LightMakeup-No1";a:7:{s:4:"name";s:15:"LightMakeup-No1";s:5:"title";s:15:"LightMakeup-No1";s:11:"description";s:99:"资讯网站主题 - 希望每个网站都像化了淡妆的妹纸一样，所以叫Light Makeup。";s:6:"author";s:5:"yyyvy";s:7:"version";s:5:"1.0.0";s:11:"dependences";a:3:{s:4:"core";s:5:"1.2.0";s:7:"plugins";a:0:{}s:7:"modules";a:1:{s:3:"cms";s:5:"1.2.0";}}s:15:"database_prefix";s:6:"eacoo_";}s:7:"default";a:5:{s:4:"name";s:7:"default";s:5:"title";s:12:"默认主题";s:11:"description";s:51:"内置于系统中，是其它主题的基础主题";s:6:"author";s:18:"心云间、凝听";s:7:"version";s:5:"1.0.3";}s:14:"default-mobile";a:5:{s:4:"name";s:14:"default-mobile";s:5:"title";s:22:"默认主题-手机端";s:11:"description";s:57:"内置于系统中，是系统的默认主题。手机端";s:6:"author";s:18:"心云间、凝听";s:7:"version";s:5:"1.0.1";}}

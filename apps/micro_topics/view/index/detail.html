@@ -1,0 +1,278 @@
+{extend name="$_theme_public_layout"/}
+{block name="style"}
+<link rel="stylesheet" href="__MODULE_CSS__/style.css">
+{/block}
+
+{block name="main"}
+    <div class="bbs_main">
+        <div class="bbs_content">
+            <div class="bbs_detail_box">
+                <ul>
+                    <li>
+                        <h1 class="title" style="color:{$info.vip?'red':''}">
+                            {$info.title}
+
+                            {if condition="$info['overhead']"}
+                                <span class="overhead">
+                                    置顶
+                                </span>
+                            {/if}
+
+                            {if condition="$info['recommend']"}
+                                <span class="recommend" style="background:#4fc277">
+                                    推荐
+                                </span>
+                            {/if}
+
+                            {if condition="$info['essence']"}
+                                <span class="essence" style="background:#f35b4f">
+                                    精华
+                                </span>
+                            {/if}
+                        </h1>
+                        <div class="bbs_letf">
+                            <div class="avatar">
+                                <a href="{:url('user/index/home',['uid'=>$info['uid']])}">
+                                    {if condition="$info.vip"}
+                                    <i class="vip_icon"></i>
+                                    {/if}
+                                    <img src="{$info.avatar}">
+                                    <span style="color:{$info.vip?'red':''}">
+                                        {$info.nickname}
+                                    </span>
+                                    {if condition="$info.role == 1"}
+                                    <i class="verify_icon verify_official" title="官方人员"></i>
+                                    {elseif condition="$info.author == 1"/}
+                                    <i class="verify_icon verify_common" title="{$info.author_info}"></i>
+                                    {/if}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="bbs_right">
+                            <div class="content">
+                                {$info.content}
+
+                                <!--回复可见内容-->
+                                {if condition="($info.respond_visible != '<p><br></p>') AND ($info.respond_visible != '')"}
+                                    <div class="respond-visible">
+                                    {if condition="($info.return_visible == 1) AND ($info.uid == $current_user.uid)"}
+                                        <div class="respond-visible-title">
+                                            隐藏内容部分
+                                        </div>
+                                        {$info.respond_visible}
+                                    {else /}
+                                        <i class="fa fa-lock"></i>
+                                        小可爱，如果你想看隐藏内容，那就请<span class="reply" data-pid="0">回复</span>！
+                                    {/if}
+                                    </div>
+                                {/if}
+                            </div>
+                            <div class="other">
+                                <span class="time">
+                                    {$info.create_time}
+                                </span>
+                                <span class="view">
+                                    阅读：{$info.view}
+                                </span>
+                                <span class="floor">
+                                    1 楼
+                                </span>
+                                <span class="reply" data-pid="0">
+                                    回复
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+
+                    {volist name="comment_list" id="vo" key="index"}
+                    <li>
+                        <div class="bbs_letf">
+                            <div class="avatar">
+                                <a href="{:url('user/index/home',['uid'=>$vo['uid']])}">
+                                    {if condition="$vo.vip"}
+                                    <i class="vip_icon"></i>
+                                    {/if}
+                                    <img src="{$vo.avatar}">
+                                    <span style="color:{$info.vip?'red':''}">
+                                        {$vo.nickname}
+                                    </span>
+                                    {if condition="$vo.role == 1"}
+                                    <i class="verify_icon verify_official" title="官方人员"></i>
+                                    {elseif condition="$vo.author == 1"/}
+                                    <i class="verify_icon verify_common" title="{$vo.author_info}"></i>
+                                    {/if}
+                                </a>
+                            </div>
+                        </div>
+                        <div class="bbs_right">
+                            <div class="content">
+                                {$vo.content}
+                            </div>
+                            <div class="other">
+                                <span class="time">
+                                    {$vo.create_time}
+                                </span>
+                                <span class="floor">
+                                    {$index + 1} 楼
+                                </span>
+                                <span class="reply" data-pid="{$vo.id}">
+                                    回复
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    {/volist}
+                </ul>
+            </div>
+            <div class="bbs_sidebar">
+                {include file="sidebar" /}
+            </div>
+        </div>
+    </div>
+
+    <!--评论框-->
+    <div class="reply_box">
+        {:widget('common/Editor/wangeditor',
+        [
+        [
+        'id'=>'content',
+        'name'=>'content',
+        'value'=>'',
+        'width'=>'100%',
+        'height'=>'50px',
+        'config'=>'all',
+        'is_load_script'=>1,
+        'picturesModal' =>1
+        ]
+        ])}
+        <div class="btn">
+            <div class="btn_close">
+                关闭
+            </div>
+            <div class="btn_suess">
+                确认评论
+            </div>
+        </div>
+    </div>
+
+    <!--登录框-->
+    <div class="bbs_login_box">
+        <div class="loginwrap">
+            <div class="loginh">
+                <div class="fl">会员登录</div>
+                <div class="fr">还没有账号<a id="sigup_now" href="{:url('user/register/index')}">立即注册</a></div>
+                <div class="clear"></div>
+            </div>
+            <div class="logininput">
+                <input type="text" name="username" class="loginusername" placeholder="邮箱/用户名">
+                <input type="password" name="password" class="loginuserpasswor" placeholder="密码">
+            </div>
+
+            <div class="loginbtn">
+                <div class="loginsubmit" id="loginsubmit">
+                    立即登录
+                </div>
+                <div class="loginsubmit_one">
+                    <a href="#">忘记密码?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{/block}
+
+{block name="script"}
+<script type="application/javascript" src="__LIBS__/layer/layer.js"></script>
+<script type="application/javascript">
+    $(function () {
+        //判断内容长度
+        function getByteLen(val) {
+            var len = 0;
+            for (var i = 0; i < val.length; i++) {
+                var length = val.charCodeAt(i);
+                if(length>=0&&length<=128)
+                {
+                    len += 1;
+                }
+                else
+                {
+                    len += 2;
+                }
+            }
+            return len;
+        }
+
+        $('.reply').on('click',function () {
+            $.ajax({
+                type: 'POST',
+                url: "{:url('micro_topics/index/is_login')}",
+                async : true,
+                success: function (data ,textStatus, jqXHR) {
+                    if(data == 200){
+                        var pid = $(this).data('pid');
+                        layer.open({
+                            type: 1,
+                            title: '评论框',
+                            closeBtn: false,
+                            shadeClose: false,
+                            area: ['750px', '420px'],
+                            content: $('.reply_box')
+                        });
+                        $('.btn_close').click(function () {
+                            layer.closeAll();
+                        })
+                        $('.btn_suess').click(function () {
+                            if(getByteLen($('#content').val()) < 15){
+                                layer.msg('内容太少了!');
+                            }else{
+                                $.ajax({
+                                    type: 'POST',
+                                    data: {topic_id:"{$info.id}",pid:pid,content:$('#content').val()},
+                                    url: "{:url('micro_topics/index/reply')}",
+                                    async : true,
+                                    success: function (data ,textStatus, jqXHR) {
+                                        if(data.code == 200){
+                                            layer.closeAll();
+                                            layer.msg(data.msg);
+                                            setInterval(location.reload(),300)
+                                        }else{
+                                            layer.msg(data.msg);
+                                        }
+                                    }
+                                });
+                            }
+                        })
+                    }else{
+                        layer.open({
+                            type: 1,
+                            title: '登录框',
+                            closeBtn: true,
+                            shadeClose: true,
+                            area: ['400px', '350px'],
+                            content: $('.bbs_login_box')
+                        });
+                    }
+                }
+            });
+        })
+
+        /*登录*/
+        $('#loginsubmit').on('click',function () {
+            $.ajax({
+                type: 'POST',
+                data: {username:$('.loginusername').val(),password:$('.loginuserpasswor').val()},
+                url: "{:url('micro_topics/index/login')}",
+                async : true,
+                success: function (data ,textStatus, jqXHR) {
+                    if(data.code == 200){
+                        layer.closeAll();
+                        layer.msg(data.msg);
+                        setInterval(location.reload(),300)
+                    }else{
+                        layer.msg(data.msg);
+                    }
+                }
+            });
+        })
+    })
+</script>
+{/block}

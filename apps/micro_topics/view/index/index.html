@@ -1,0 +1,249 @@
+{extend name="$_theme_public_layout"/}
+{block name="style"}
+<link rel="stylesheet" href="__MODULE_CSS__/style.css">
+{/block}
+
+{block name="main"}
+    <div class="bbs_main">
+        <div class="bbs_content">
+            <div class="bbs_header">
+                <div class="bbs_header_a"></div>
+                <div class="bbs_header_b">
+                    <div class="bbs_header_avatar">
+                        <img src="__MODULE_IMG__/bbs_header_avatar.png" alt="">
+                    </div>
+                    <div class="bbs_header_des">
+                        <div class="bbs_header_top">
+                            <h4>{$infomain.forum_name}</h4>
+                            <h5>帖子：<i>{$count}</i></h5>
+                        </div>
+                        <div class="bbs_header_bottom">
+                            <p>{$infomain.forum_describe}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bbs_mainbody">
+                <div class="bbs_cat" id="bbs_cat">
+                    <h2 style="margin-top: 0;">
+                        <i class="fa fa-bookmark"></i>
+                        帖子分类
+                        <a href="{:url('micro_topics/My/edit')}" class="add-post">
+                            发布帖子
+                        </a>
+                    </h2>
+                    <ul>
+                        <li>
+                            <a href="{:url('micro_topics/index/index')}">
+                                所有
+                            </a>
+                        </li>
+                        {volist name="cat_list" id="cat"}
+                        <li>
+                            <a href="{:url('micro_topics/index/index',['category_id'=>$cat['term_id']])}">
+                                {$cat.name}
+                            </a>
+                        </li>
+                        {/volist}
+                    </ul>
+                </div>
+
+                <div class="bbs_list_box">
+                    <h2 style="margin-top: 0;"><i class="fa fa-thumb-tack"></i> 置顶帖子</h2>
+                    <div class="list overhead_list">
+                        <ul>
+                            {volist name="overhead_list" id="vo"}
+                            <li>
+                                <div class="avatar">
+                                    <a href="{:url('user/index/home',['uid'=>$vo['uid']])}">
+                                        {if condition="$vo.vip"}
+                                            <i class="vip_icon"></i>
+                                        {/if}
+                                        <img src="{$vo.avatar}">
+                                        {if condition="$vo.role == 1"}
+                                            <i class="verify_icon verify_official" title="官方人员"></i>
+                                        {elseif condition="$vo.author == 1"/}
+                                            <i class="verify_icon verify_common" title="{$vo.author_info}"></i>
+                                        {/if}
+                                    </a>
+                                </div>
+                                <div class="main">
+                                    <h1>
+                                        <a href="{:url('micro_topics/index/detail',['id'=>$vo['id']])}">
+                                            <span class="cat_name">
+                                                {$vo.cat_name}
+                                            </span>
+                                            <i class="title" style="color:{$vo.vip?'red':''}">
+                                                {$vo.title}
+                                            </i>
+
+                                            {if condition="$vo['is_img']"}
+                                                <i class="fa fa-picture-o" style="color:#00af00;"></i>
+                                            {/if}
+
+                                            <span class="overhead">
+                                                置顶
+                                            </span>
+
+                                            {if condition="$vo['recommend']"}
+                                                <span class="recommend" style="background:#4fc277">
+                                                    推荐
+                                                </span>
+                                            {/if}
+
+                                            {if condition="$vo['essence']"}
+                                                <span class="essence" style="background:#f35b4f">
+                                                    精华
+                                                </span>
+                                            {/if}
+                                        </a>
+                                        <div class="comment">
+                                            <i class="fa fa-comment-o"></i>
+                                            {$vo.comment}
+                                        </div>
+                                    </h1>
+                                    <div class="addition">
+                                        <div style="float:left;">
+                                            <span class="user">
+                                                <i class="fa fa-user"></i>
+                                                {$vo.nickname}
+                                            </span>
+                                            <span class="time">
+                                                <i class="fa fa-calendar"></i>
+                                                {$vo.create_time|strtotime|'Y-m-d',|date}
+                                            </span>
+                                            <span class="view">
+                                                <i class="fa fa-eye"></i>
+                                                {$vo.view}
+                                            </span>
+                                        </div>
+                                        <div style="float: right">
+                                            {if condition="$vo['last_nickname']"}
+                                                <span class="comments_user">
+                                                    <i class="fa fa-comments-o"></i>
+                                                    {$vo.last_nickname}
+                                                </span>
+                                                <span class="comments_time">
+                                                    {$vo.last_time|strtotime|friendly_date}
+                                                </span>
+                                            {/if}
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            {/volist}
+                        </ul>
+                    </div>
+
+
+                    <h2>
+                        <i class="fa fa-comments-o"></i>
+                        所有帖子
+                        <div class="bbs_type">
+                            <ul>
+                                <li class="{$order_type?'':'bbs_current'}">
+                                    <a href="{:url('micro_topics/index/index',['order_type'=>0])}#bbs_cat">
+                                        回复
+                                    </a>
+                                </li>
+                                <li class="{$order_type?'bbs_current':''}">
+                                    <a href="{:url('micro_topics/index/index',['order_type'=>1])}#bbs_cat">
+                                        最新
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </h2>
+                    <div class="list">
+                        <ul>
+                            {volist name="list" id="vo"}
+                                <li>
+                                    <div class="avatar">
+                                        <a href="{:url('user/index/home',['uid'=>$vo['uid']])}">
+                                            {if condition="$vo.vip"}
+                                            <i class="vip_icon"></i>
+                                            {/if}
+                                            <img src="{$vo.avatar}">
+                                            {if condition="$vo.role == 1"}
+                                            <i class="verify_icon verify_official" title="官方人员"></i>
+                                            {elseif condition="$vo.author == 1"/}
+                                            <i class="verify_icon verify_common" title="{$vo.author_info}"></i>
+                                            {/if}
+                                        </a>
+                                    </div>
+                                    <div class="main">
+                                        <h1>
+                                            <a href="{:url('micro_topics/index/detail',['id'=>$vo['id']])}">
+                                                <span class="cat_name">
+                                                    {$vo.cat_name}
+                                                </span>
+                                                <i class="title" style="color:{$vo.vip?'red':''}">
+                                                    {$vo.title}
+                                                </i>
+
+                                                {if condition="$vo['is_img']"}
+                                                    <i class="fa fa-picture-o" style="color:#00af00;"></i>
+                                                {/if}
+
+                                                {if condition="$vo['recommend']"}
+                                                    <span class="recommend" style="background:#4fc277">
+                                                        推荐
+                                                    </span>
+                                                {/if}
+
+                                                {if condition="$vo['essence']"}
+                                                    <span class="essence" style="background:#f35b4f">
+                                                        精华
+                                                    </span>
+                                                {/if}
+                                            </a>
+                                            <div class="comment">
+                                                <i class="fa fa-comment-o"></i>
+                                                {$vo.comment}
+                                            </div>
+                                        </h1>
+                                        <div class="addition">
+                                            <div style="float:left;">
+                                                <span class="user">
+                                                    <i class="fa fa-user"></i>
+                                                    {$vo.nickname}
+                                                </span>
+                                                    <span class="time">
+                                                    <i class="fa fa-calendar"></i>
+                                                    {$vo.create_time|strtotime|'Y-m-d',|date}
+                                                </span>
+                                                    <span class="view">
+                                                    <i class="fa fa-eye"></i>
+                                                    {$vo.view}
+                                                </span>
+                                            </div>
+                                            <div style="float: right">
+                                                {if condition="$vo['last_nickname']"}
+                                                    <span class="comments_user">
+                                                        <i class="fa fa-comments-o"></i>
+                                                        {$vo.last_nickname}
+                                                    </span>
+                                                    <span class="comments_time">
+                                                        {$vo.last_time|strtotime|friendly_date}
+                                                    </span>
+                                                {/if}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            {/volist}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="bbs_sidebar">
+                {include file="sidebar" /}
+            </div>
+        </div>
+    </div>
+
+{/block}
+
+{block name="script"}
+
+{/block}

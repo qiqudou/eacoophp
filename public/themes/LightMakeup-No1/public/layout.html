@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="zh-CN" class="ie8"> <![endif]-->
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>{$meta_title|default="EacooPHP系统"}</title>
+    <meta content="telephone=no,email=no,address=no" name="format-detection" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="wap-font-scale" content="no" />
+    <meta name="Keywords" content="{:config('web_site_keyword')}" />
+    <meta name="Description" content="{:config('web_site_description')}" />
+    <meta name="frontend-mobile" content="yes" />
+    <link type="text/css" rel="stylesheet" href="__THEME_CSS__/style.css?v=1.0.1"/>
+    {block name="style"}{/block}
+    <script type="text/javascript" src="__PUBLIC__/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="__THEME_JS__/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript">
+        var EacooPHP = window.EacooPHP = {
+            "root_domain": "{$Request.domain}", //当前网站地址
+            "static": "__STATIC__", //静态资源地址
+            "public": "__PUBLIC__", //项目公共目录地址
+            "uploads_url" :'/uploads/',
+            "cdn_url":"{:config('aliyun_oss.domain')}",
+        }
+    </script>
+<![endif]-->
+{:hook('PageHeader')}
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <a href="/">
+                <img src="__THEME_IMG__/logo.png" alt="">
+            </a>
+        </div>
+        <div class="nav">
+            <ul>
+                {volist name="header_menus" id="row"}
+                <li>
+                    {empty name="row._child"}
+                        <a href="{$row.value|eacoo_url=###,[],$row.depend_type|default=''}" target="{$row.target|default=''}" title="{$row.title|default=''}">
+                            {notempty name="row.icon"}
+                            <i class="{$row.icon}"></i>
+                            {/notempty}
+                            {$row.title|default='未知'}
+                        </a>
+                    {else/}
+                        <a href="javascript:void(0);">
+                            {notempty name="row.icon"}
+                            <i class="{$row.icon}"></i>
+                            {/notempty}
+                            {$row.title|default='未知'}
+                        </a>
+                    {/empty}
+                    {notempty name="row._child"}
+                        <ul class="dropdown-menu">
+                            {volist name="row._child" id="child"}
+                                <li>
+                                    <a href="{$child.depend_type==1?url($child['value']):plugin_url($child['value'])}">
+                                        {$child.title}
+                                    </a>
+                                </li>
+                            {/volist}
+                        </ul>
+                    {/notempty}
+                </li>
+                {/volist}
+            </ul>
+        </div>
+    </div>
+</header>
+
+{block name="main"}
+
+{/block}
+
+<footer class="footer">
+    <p class="bq">
+        Copyright© 2017-2018
+        <span class="pipe">|</span>
+        <a class="banquan" target="_blank" href="http://www.eacoophp123.com">Powered by EacooPHP</a>
+        <span class="pipe">|</span>
+        <a href="http://www.miitbeian.gov.cn/" target="_blank"> 蜀ICP备10000000号</a>
+        <span class="pipe">|</span>
+        <a href="#" target="_blank">BY: yyyvy</a>
+        </span>
+    </p>
+</footer>
+
+{:hook('PageFooter')}
+{:config('web_site_statistics')}
+{block name="script"}
+
+{/block}
+
+</body>
+</html>

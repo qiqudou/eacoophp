@@ -1,0 +1,62 @@
+<div class="bbs_sidebar_box">
+    <div class="bbs_ranking_user">
+        <ul class="tab_title">
+            <li class="active">
+                日回帖排行
+            </li>
+            <li>
+                周回帖排行
+            </li>
+        </ul>
+        <div class="tab_box">
+            <div style="display: block;">
+                <ul>
+                    {volist name="day_ranking_list" id="vo"}
+                        <li>
+                            <a href="{:url('user/index/home',['uid'=>$vo['uid']])}">
+                                <img src="{$vo.avatar}" alt="">
+                            </a>
+                        </li>
+                    {/volist}
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    {volist name="week_ranking_list" id="vo"}
+                        <li>
+                            <a href="{:url('user/index/home',['uid'=>$vo['uid']])}">
+                                <img src="{$vo.avatar}" alt="">
+                            </a>
+                        </li>
+                    {/volist}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bbs_sidebar_box">
+    <h3>热门帖子</h3>
+    <div class="hot_post">
+        <ul>
+            {volist name="hot_post" id="vo"}
+                <li>
+                    <a href="{:url('micro_topics/index/detail',['id'=>$vo['id']])}">
+                        {$vo.title}
+                    </a>
+                </li>
+            {/volist}
+        </ul>
+    </div>
+</div>
+
+<script type="application/javascript">
+    //tab切换
+    $('.tab_title li').on('click',function () {
+        var index = $(this).index();
+        $('.tab_title li').removeClass('active');
+        $(this).addClass('active');
+        $('.tab_box').children().hide();
+        $('.tab_box').children().eq(index).show();
+    })
+</script>

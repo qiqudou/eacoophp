@@ -1,0 +1,4 @@
+<?php
+//000000001200
+ exit();?>
+a:25:{s:2:"id";i:27;s:3:"uid";i:1;s:4:"name";s:23:"wx1image_14751583331037";s:4:"path";s:55:"/uploads/picture/2016-09-29/wx1image_14751583331037.jpg";s:3:"url";s:74:"http://www.test.com/uploads/picture/2016-09-29/wx1image_14751583331037.jpg";s:8:"location";s:5:"local";s:9:"path_type";s:7:"picture";s:3:"ext";s:3:"jpg";s:9:"mime_type";s:0:"";s:4:"size";s:8:"36.22 KB";s:3:"alt";N;s:3:"md5";s:0:"";s:4:"sha1";s:0:"";s:8:"download";i:0;s:11:"create_time";s:19:"2016-09-29 22:12:13";s:11:"update_time";s:19:"2016-09-29 22:12:13";s:4:"sort";i:99;s:6:"status";i:1;s:7:"urlRule";s:15:"cms/index/index";s:2:"ip";s:9:"127.0.0.1";s:9:"real_path";s:88:"D:\phpStudy\WWW\homedatas\public//uploads/picture/2016-09-29/wx1image_14751583331037.jpg";s:3:"src";s:55:"/uploads/picture/2016-09-29/wx1image_14751583331037.jpg";s:10:"uploadtime";s:19:"2016-09-29 22:12:13";s:6:"author";s:9:"创始人";s:7:"term_id";i:0;}

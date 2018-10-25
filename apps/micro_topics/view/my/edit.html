@@ -1,0 +1,148 @@
+{extend name="$_theme_public_layout"/}
+{block name="style"}
+<link rel="stylesheet" href="__MODULE_CSS__/style.css">
+<link rel="stylesheet" href="__LIBS__/layer/skin/layer.css">
+<style>
+    .form-group {
+        margin: 15px;
+    }
+    .upload {
+        position: relative;
+    }
+    .upload img {
+        width: 90px;
+    }
+    .upload input[type=file] {
+        position: absolute;
+        width: 90px;
+        height: 100%;
+        top: 0;
+        opacity: 0;
+        z-index: 999;
+    }
+    #cover {
+        display: none;
+    }
+</style>
+{/block}
+
+{block name="main"}
+<div class="bbs_main">
+    <div class="bbs_content">
+        <div class="bbs-detail-edit">
+            <from id="form-edit" method="post" action="{$form_url}">
+                {notempty name="info.id"}
+                <input type="hidden" name="id" value="{$info.id|default='0'}" />
+                {/notempty}
+                <div class="form-group" style="overflow: hidden;">
+                    <div class="col-md-2">
+                        <select name="category_id" class="form-control">
+                            <option value="" selected>选择分类</option>
+                            {volist name="category" id="val"}
+                            <option value="{$key}" {php}if($key==$info['category_id']){echo 'selected';}{/php}>{$val}</option>
+                            {/volist}
+                        </select>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" name="title" value="{$info.title|default=''}" placeholder="请输入标题">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="content">正文内容：</label>
+                    {:widget('common/Editor/wangeditor',
+                    [
+                    [
+                    'id'=>'content',
+                    'name'=>'content',
+                    'value'=>$info['content'],
+                    'width'=>'100%',
+                    'height'=>'200px',
+                    'config'=>'all',
+                    'is_load_script'=>1,
+                    'picturesModal' =>1
+                    ]
+                    ])}
+                </div>
+                <div class="form-group">
+                    <label for="respond_visible">隐藏内容：</label>
+                    {:widget('common/Editor/wangeditor',
+                    [
+                    [
+                    'id'=>'respond_visible',
+                    'name'=>'respond_visible',
+                    'value'=>$info['respond_visible'],
+                    'width'=>'100%',
+                    'height'=>'200px',
+                    'config'=>'all',
+                    'is_load_script'=>1,
+                    'picturesModal' =>1
+                    ]
+                    ])}
+                </div>
+                <div class="form-group" style="overflow: hidden;">
+                    <label class="control-label col-md-1" for="cover">封面:</label>
+                    <div class="col-md-offset-1 upload">
+                        <input type="file" onchange="changepic(this)" accept="image/*">
+                        <input type="text" id="cover" name="cover" value="{$info.cover|default=''}">
+                        <img src="{$info.cover?get_image($info.cover):'__MODULE_IMG__/upload.png'}" class="default-upload">
+                    </div>
+                </div>
+                <div class="form-group" style="text-align: center;">
+                    <button class="btn btn-primary" onclick="subForm();" type="submit">保存并发布</button>
+                    <button onclick="javascript:history.back(-1);return false;" class="btn btn-default return">返回</button>
+                </div>
+            </from>
+        </div>
+    </div>
+</div>
+{/block}
+
+{block name="script"}
+<script type="application/javascript" src="__LIBS__/layer/layer.js"></script>
+<script type="application/javascript">
+    function changepic(obj){
+        var reader = new FileReader();
+        reader.readAsDataURL(obj.files[0]);
+        reader.onload = function(e){
+            file = e.target.result
+            console.log(file)
+            $.ajax({
+                type: 'POST',
+                url: "{:url('micro_topics/my/upload')}",
+                data: {file:file},
+                async : true,
+                success: function (data ,textStatus, jqXHR) {
+                    if(data.code == 1){
+                        $('#cover').val(data.data.id);
+                        $('.default-upload').attr('src',data.data.path);
+                    }
+                }
+            });
+        };
+    }
+
+    /*
+    *   表单提交
+    * */
+    function subForm(){
+        var res = $('#form-edit').find('input,select,textarea,button').serialize();
+        $.ajax({
+            type: 'POST',
+            url: "{:url('micro_topics/my/edit')}",
+            data: res,
+            async : false,
+            success: function (data ,textStatus, jqXHR) {
+                if(data.code == 0){
+                    layer.msg(data.msg);
+                }else{
+                    layer.msg('发布成功，正在跳转...');
+                    setTimeout(function () {
+                        window.history.back()
+                    },2000);
+                }
+            }
+        });
+    }
+</script>
+
+{/block}
